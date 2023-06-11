@@ -42,7 +42,7 @@ def predict(selected_model, prepared_data):
     return predicted
 
 def submit_check(uploaded_file,query,model_name,sum_nocut,sum_gen):
-    data = []
+        data = []
     # use_demo = st.radio(
     #     "choose input type",
     #     ('use demo meeting transcript','your own file'))
