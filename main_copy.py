@@ -3,6 +3,7 @@ import json
 import nltk
 from nltk import word_tokenize
 import streamlit as st
+import os
 
 def load_data(uploaded_file):
     data = []
@@ -43,8 +44,8 @@ def predict(selected_model, prepared_data):
 def submit_check(uploaded_file,query,model_name,sum_nocut,sum_gen):
     data = []
     use_demo = st.radio(
-        "or",
-        ('use demo meeting transcript'))
+        "choose input type",
+        ('use demo meeting transcript','your own file'))
     if st.button('submit'):
         st.write('submitted')
         if use_demo == 'use demo meeting transcript':
@@ -64,6 +65,7 @@ def show_output(predicted):
     st.write('predict', predicted[0]['summary_text'])
 
 def main():
+    print(os.listdir('.'))
     sum_nocut = pipeline(task="summarization",model='fgiuhsdfkjhfv/longsec_withno_cut')
     sum_gen = pipeline(task="summarization",model='fgiuhsdfkjhfv/longsec_general_query')
 
