@@ -4,6 +4,7 @@ import nltk
 from nltk import word_tokenize
 import streamlit as st
 import os
+nltk.download('punkt')
 
 def load_data(uploaded_file):
     data = []
@@ -49,7 +50,7 @@ def submit_check(uploaded_file,query,model_name,sum_nocut,sum_gen):
     if st.button('submit'):
         st.write('submitted')
         # if use_demo == 'use demo meeting transcript':
-        #     file_name = 'test_data/1_meet.json'
+        #     file_name = './test_data/1_meet.json'
         #     with open(file_name) as f:
         #         uploaded_file = f
         # else:
