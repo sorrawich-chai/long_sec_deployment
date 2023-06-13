@@ -49,12 +49,12 @@ def submit_check(uploaded_file,query,model_name,sum_nocut,sum_gen):
         ('use demo meeting transcript','your own file'))
     if st.button('submit'):
         st.write('submitted')
-        # if use_demo == 'use demo meeting transcript':
-        #     file_name = './test_data/1_meet.json'
-        #     with open(file_name) as f:
-        #         uploaded_file = f
-        # else:
-        data = load_data(uploaded_file)
+        if use_demo == 'use demo meeting transcript':
+            file_name = './test_data/1_meet.json'
+            with open(file_name) as f:
+                uploaded_file = f
+        else:
+            data = load_data(uploaded_file)
         prepared_data = prepare_data(data,query)
         if model_name == 'fgiuhsdfkjhfv/longsec_withno_cut':
             predicted = predict(sum_nocut, prepared_data)
