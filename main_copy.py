@@ -44,13 +44,15 @@ def predict(selected_model, prepared_data):
 
 def submit_check(uploaded_file,query,model_name,sum_nocut,sum_gen):
     data = []
+    file_name = './test_data/1_meet.json'
     use_demo = st.radio(
         "choose input type",
         ('use demo meeting transcript','your own file'))
+    with open(file_name) as f:
+        st.write('demo_meeting',f)
     if st.button('submit'):
         st.write('submitted')
         if use_demo == 'use demo meeting transcript':
-            file_name = './test_data/1_meet.json'
             with open(file_name) as f:
                 uploaded_file = f
         else:
